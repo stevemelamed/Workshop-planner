@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workshop Planner</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Workshop Planner</p>
+        <h1>Lay out your shop before moving heavy tools.</h1>
+        <p class="intro">
+          Pick a floor size, add shelves, cabinets, benches, and large tools, then drag everything into place.
+        </p>
+      </div>
+      <form id="floor-form" class="floor-card">
+        <label>
+          Floor width
+          <span class="input-row">
+            <input id="floor-width" name="width" type="number" min="1" step="0.5" value="24">
+            <span>ft</span>
+          </span>
+        </label>
+        <label>
+          Floor depth
+          <span class="input-row">
+            <input id="floor-depth" name="depth" type="number" min="1" step="0.5" value="20">
+            <span>ft</span>
+          </span>
+        </label>
+        <button type="submit">Update floor plan</button>
+      </form>
+    </header>
+
+    <main class="app-shell">
+      <aside class="panel">
+        <section>
+          <div class="section-heading">
+            <h2>Add items</h2>
+            <p>Default sizes can be changed after placing an item.</p>
+          </div>
+          <div id="toolbox" class="toolbox"></div>
+        </section>
+
+        <section class="selected-panel" aria-live="polite">
+          <div class="section-heading">
+            <h2>Selected item</h2>
+            <p id="selection-help">Select an item on the plan to edit it.</p>
+          </div>
+          <form id="item-form" class="item-form" hidden>
+            <label>
+              Name
+              <input id="item-label" name="label" type="text">
+            </label>
+            <div class="field-grid">
+              <label>
+                Width
+                <span class="input-row">
+                  <input id="item-width" name="width" type="number" min="0.5" step="0.25">
+                  <span>ft</span>
+                </span>
+              </label>
+              <label>
+                Depth
+                <span class="input-row">
+                  <input id="item-depth" name="depth" type="number" min="0.5" step="0.25">
+                  <span>ft</span>
+                </span>
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                X
+                <span class="input-row">
+                  <input id="item-x" name="x" type="number" min="0" step="0.25">
+                  <span>ft</span>
+                </span>
+              </label>
+              <label>
+                Y
+                <span class="input-row">
+                  <input id="item-y" name="y" type="number" min="0" step="0.25">
+                  <span>ft</span>
+                </span>
+              </label>
+            </div>
+            <div class="button-row">
+              <button id="rotate-item" type="button">Rotate 90 degrees</button>
+              <button id="delete-item" type="button" class="danger">Delete</button>
+            </div>
+          </form>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <div class="plan-toolbar">
+          <div>
+            <h2>Your floor plan</h2>
+            <p id="plan-summary">24 ft x 20 ft</p>
+          </div>
+          <div class="button-row">
+            <button id="save-plan" type="button">Save</button>
+            <button id="load-plan" type="button">Load</button>
+            <button id="clear-plan" type="button" class="ghost">Clear</button>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <svg id="floor-plan" role="img" aria-label="Workshop floor plan"></svg>
+        </div>
+        <p class="hint">Tip: click an item to edit it, then drag it around the floor plan.</p>
+      </section>
+    </main>
+
+    <script src="planner-core.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

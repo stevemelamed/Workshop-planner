@@ -1,0 +1,15 @@
+{
+  "name": "workshop-planner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A lightweight workshop floor plan layout tool.",
+  "scripts": {
+    "test": "node tests/planner-core.test.js"
+  },
+  "keywords": [
+    "workshop",
+    "planner",
+    "floor-plan"
+  ],
+  "license": "MIT"
+}
