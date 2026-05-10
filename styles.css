@@ -27,6 +27,13 @@ body {
     linear-gradient(135deg, #f8f4ec, var(--bg));
 }
 
+.item-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 button,
 input {
   font: inherit;
@@ -276,33 +283,14 @@ h2 {
   cursor: grabbing;
 }
 
-.item-shape {
-  fill: transparent;
-  stroke: rgba(124, 64, 30, 0.35);
-  stroke-dasharray: 0.18 0.14;
-  stroke-width: 0.08;
-}
-
-.opening-shape {
-  fill: transparent;
-  stroke: #5f5a51;
-  stroke-dasharray: 0.28 0.16;
-}
-
-.plan-item.selected .item-shape {
-  fill: rgba(60, 110, 113, 0.12);
-  stroke: #183f42;
-  stroke-width: 0.16;
-}
-
-.plan-item.selected .opening-shape {
-  fill: rgba(60, 110, 113, 0.2);
-}
-
 .item-image {
   display: block;
   overflow: visible;
-  pointer-events: none;
+  pointer-events: visiblePainted;
+}
+
+.plan-item.selected .item-image {
+  filter: drop-shadow(0 0 0.18px #183f42) drop-shadow(0 0 0.32px #ffffff);
 }
 
 .item-detail {
@@ -360,21 +348,6 @@ h2 {
 
 .door-swing {
   stroke-dasharray: 0.16 0.14;
-}
-
-.item-label {
-  fill: #1e1712;
-  font-size: 0.62px;
-  font-weight: 800;
-  pointer-events: none;
-  paint-order: stroke;
-  stroke: rgba(255, 255, 255, 0.92);
-  stroke-width: 0.18;
-}
-
-.plan-item.selected .item-label {
-  fill: #ffffff;
-  stroke: rgba(24, 63, 66, 0.65);
 }
 
 .empty-state {

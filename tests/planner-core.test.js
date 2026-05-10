@@ -35,9 +35,18 @@ test("adds known workshop items with default dimensions", () => {
 
 test("has a local SVG image for every item template", () => {
   const sprite = fs.readFileSync(path.join(__dirname, "../assets/workshop-items.svg"), "utf8");
+  const html = fs.readFileSync(path.join(__dirname, "../index.html"), "utf8");
   core.ITEM_TEMPLATES.forEach((template) => {
     assert.match(sprite, new RegExp(`<symbol id="${template.key}"(?:\\s|>)`));
+    assert.match(html, new RegExp(`<symbol id="${template.key}"(?:\\s|>)`));
   });
+});
+
+test("renders placed floor plan items as images only", () => {
+  const app = fs.readFileSync(path.join(__dirname, "../app.js"), "utf8");
+  assert.match(app, /href: `#\$\{item\.templateKey\}`/);
+  assert.doesNotMatch(app, /class: "item-label"|class: `item-shape/);
+  assert.doesNotMatch(app, /group\.appendChild\(label\)|group\.append\(title, rect\)/);
 });
 
 test("adds door opening markers", () => {

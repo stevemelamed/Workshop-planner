@@ -386,7 +386,7 @@ function renderItemImage(group, item, footprint) {
     preserveAspectRatio: "none",
     "aria-hidden": "true"
   });
-  image.appendChild(svgElement("use", { href: `assets/workshop-items.svg#${item.templateKey}` }));
+  image.appendChild(svgElement("use", { href: `#${item.templateKey}` }));
   group.appendChild(image);
 }
 
@@ -400,27 +400,11 @@ function renderItem(item) {
     role: "button",
     "aria-label": `${item.label}, ${footprint.width} by ${footprint.depth} feet`
   });
-  const rect = svgElement("rect", {
-    class: `item-shape${item.category === "Openings" ? " opening-shape" : ""}`,
-    width: footprint.width,
-    height: footprint.depth,
-    rx: Math.min(0.25, footprint.width / 8, footprint.depth / 8)
-  });
-  const label = svgElement("text", {
-    class: "item-label",
-    x: footprint.width / 2,
-    y: footprint.depth / 2,
-    "text-anchor": "middle",
-    "dominant-baseline": "central"
-  });
-  label.textContent = item.label.length > 20 ? `${item.label.slice(0, 18)}...` : item.label;
-
   const title = svgElement("title");
   title.textContent = `${item.label} (${item.width} x ${item.depth} ft, rotated ${item.rotation} degrees)`;
 
-  group.append(title, rect);
+  group.appendChild(title);
   renderItemImage(group, item, footprint);
-  group.appendChild(label);
   group.addEventListener("pointerdown", startDrag);
   group.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
