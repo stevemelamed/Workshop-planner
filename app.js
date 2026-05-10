@@ -386,7 +386,14 @@ function renderItemImage(group, item, footprint) {
     preserveAspectRatio: "none",
     "aria-hidden": "true"
   });
-  image.appendChild(svgElement("use", { href: `#${item.templateKey}` }));
+  const symbol = document.getElementById(item.templateKey);
+  if (symbol) {
+    Array.from(symbol.children).forEach((child) => {
+      if (child.tagName.toLowerCase() !== "style") {
+        image.appendChild(child.cloneNode(true));
+      }
+    });
+  }
   group.appendChild(image);
 }
 
@@ -400,10 +407,6 @@ function renderItem(item) {
     role: "button",
     "aria-label": `${item.label}, ${footprint.width} by ${footprint.depth} feet`
   });
-  const title = svgElement("title");
-  title.textContent = `${item.label} (${item.width} x ${item.depth} ft, rotated ${item.rotation} degrees)`;
-
-  group.appendChild(title);
   renderItemImage(group, item, footprint);
   group.addEventListener("pointerdown", startDrag);
   group.addEventListener("keydown", (event) => {

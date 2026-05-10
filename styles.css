@@ -275,6 +275,91 @@ h2 {
   stroke-width: 0.15;
 }
 
+.wood {
+  fill: #c98545;
+  stroke: #5c351d;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.wood-dark {
+  fill: #8f562d;
+}
+
+.metal {
+  fill: #c7d0d5;
+  stroke: #43525a;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.metal-dark {
+  fill: #697981;
+}
+
+.steel {
+  fill: #f4f6f7;
+  stroke: #59676f;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.tool-red {
+  fill: #bf4838;
+  stroke: #6d241b;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.tool-blue {
+  fill: #4d8594;
+  stroke: #244c55;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.tool-green {
+  fill: #5e8d70;
+  stroke: #2e503a;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.dark-line {
+  fill: none;
+  stroke: #2b2520;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.soft-line {
+  fill: none;
+  stroke: #6f655b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.tire {
+  fill: #2b2f31;
+  stroke: #111;
+  stroke-width: 3;
+}
+
+.glass {
+  fill: #dceef6;
+  stroke: #5c7f91;
+  stroke-width: 3;
+}
+
+.opening {
+  fill: #efe7d8;
+  stroke: #534b43;
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
 .plan-item {
   cursor: grab;
 }
