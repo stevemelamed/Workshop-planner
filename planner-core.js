@@ -17,7 +17,9 @@
     { key: "drill-press", label: "Drill press", category: "Large tool", width: 2.5, depth: 2.5 },
     { key: "welder", label: "Welder", category: "Large tool", width: 3, depth: 2 },
     { key: "miter-saw", label: "Miter saw station", category: "Large tool", width: 8, depth: 2.5 },
-    { key: "assembly-table", label: "Assembly table", category: "Work surface", width: 4, depth: 4 }
+    { key: "assembly-table", label: "Assembly table", category: "Work surface", width: 4, depth: 4 },
+    { key: "entry-door", label: "Entry door", category: "Openings", width: 3, depth: 0.5 },
+    { key: "garage-door", label: "Garage door", category: "Openings", width: 9, depth: 0.75 }
   ];
 
   function toNumber(value, fallback) {

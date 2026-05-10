@@ -282,9 +282,76 @@ h2 {
   stroke-width: 0.12;
 }
 
+.opening-shape {
+  fill: rgba(232, 222, 203, 0.72);
+  stroke: #5f5a51;
+  stroke-dasharray: 0.28 0.16;
+}
+
 .plan-item.selected .item-shape {
   fill: rgba(60, 110, 113, 0.88);
   stroke: #183f42;
+}
+
+.plan-item.selected .opening-shape {
+  fill: rgba(60, 110, 113, 0.2);
+}
+
+.item-detail {
+  fill: none;
+  stroke: #4b2f1d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 0.12;
+  pointer-events: none;
+}
+
+.plan-item.selected .item-detail {
+  stroke: #ffffff;
+}
+
+.storage-bin,
+.bench-top,
+.bench-leg,
+.bench-vise,
+.saw-table,
+.saw-blade,
+.drill-base,
+.drill-head,
+.drill-table,
+.welder-body,
+.welder-wheel,
+.miter-bench,
+.miter-blade,
+.assembly-top,
+.garage-track {
+  fill: rgba(255, 250, 240, 0.72);
+}
+
+.saw-blade,
+.miter-blade {
+  fill: rgba(238, 238, 238, 0.9);
+  stroke: #7b1f1f;
+}
+
+.welder-body {
+  fill: rgba(132, 168, 154, 0.75);
+}
+
+.door-threshold,
+.garage-header {
+  stroke: #25211c;
+  stroke-width: 0.18;
+}
+
+.door-leaf,
+.door-swing,
+.garage-panel {
+  stroke: #5f5a51;
+}
+
+.door-swing {
+  stroke-dasharray: 0.16 0.14;
 }
 
 .item-label {

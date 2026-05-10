@@ -31,6 +31,17 @@ test("adds known workshop items with default dimensions", () => {
   assert.equal(item.y, 1);
 });
 
+test("adds door opening markers", () => {
+  const entryDoor = core.createItem("entry-door", { width: 24, depth: 20 }, 0);
+  const garageDoor = core.createItem("garage-door", { width: 24, depth: 20 }, 1);
+
+  assert.equal(entryDoor.category, "Openings");
+  assert.equal(entryDoor.width, 3);
+  assert.equal(entryDoor.depth, 0.5);
+  assert.equal(garageDoor.label, "Garage door");
+  assert.equal(garageDoor.width, 9);
+});
+
 test("keeps items inside the floor after moving or resizing", () => {
   const floor = { width: 10, depth: 8 };
   const clamped = core.clampItemToFloor(
