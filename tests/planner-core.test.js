@@ -36,7 +36,7 @@ test("adds known workshop items with default dimensions", () => {
 test("has a local SVG image for every item template", () => {
   const sprite = fs.readFileSync(path.join(__dirname, "../assets/workshop-items.svg"), "utf8");
   core.ITEM_TEMPLATES.forEach((template) => {
-    assert.match(sprite, new RegExp(`<symbol id="${template.key}"\\b`));
+    assert.match(sprite, new RegExp(`<symbol id="${template.key}"(?:\\s|>)`));
   });
 });
 
