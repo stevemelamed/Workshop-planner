@@ -376,43 +376,18 @@ function renderGarageDoor(group, width, depth) {
 }
 
 function renderItemImage(group, item, footprint) {
-  const width = footprint.width;
-  const depth = footprint.depth;
-  switch (item.templateKey) {
-    case "shelves":
-      renderShelves(group, width, depth);
-      break;
-    case "cabinet":
-      renderCabinet(group, width, depth);
-      break;
-    case "workbench":
-      renderWorkbench(group, width, depth);
-      break;
-    case "table-saw":
-      renderTableSaw(group, width, depth);
-      break;
-    case "drill-press":
-      renderDrillPress(group, width, depth);
-      break;
-    case "welder":
-      renderWelder(group, width, depth);
-      break;
-    case "miter-saw":
-      renderMiterSaw(group, width, depth);
-      break;
-    case "assembly-table":
-      renderAssemblyTable(group, width, depth);
-      break;
-    case "entry-door":
-      renderEntryDoor(group, width, depth);
-      break;
-    case "garage-door":
-      renderGarageDoor(group, width, depth);
-      break;
-    default:
-      renderWorkbench(group, width, depth);
-      break;
-  }
+  const image = svgElement("svg", {
+    class: "item-image",
+    x: 0,
+    y: 0,
+    width: footprint.width,
+    height: footprint.depth,
+    viewBox: "0 0 100 100",
+    preserveAspectRatio: "none",
+    "aria-hidden": "true"
+  });
+  image.appendChild(svgElement("use", { href: `assets/workshop-items.svg#${item.templateKey}` }));
+  group.appendChild(image);
 }
 
 function renderItem(item) {

@@ -7,7 +7,7 @@ A lightweight browser app for sketching a workshop layout before you move shelve
 - Set the floor plan width and depth in feet.
 - Add common workshop items such as shelves, cabinets, workbenches, table saws, drill presses, welders, miter saw stations, and assembly tables.
 - Add entry door and garage door markers to show shop openings.
-- Use top-down visual drawings for placed items so tools and storage are easier to recognize on the plan.
+- Use local top-down SVG image assets for placed items so tools and storage are easier to recognize on the plan.
 - Drag items around the SVG floor plan.
 - Select an item to rename it, edit its dimensions, adjust its position, rotate it, or delete it.
 - Save/load plans locally in the browser.

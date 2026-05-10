@@ -1,4 +1,6 @@
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
 const core = require("../planner-core");
 
 function test(name, fn) {
@@ -29,6 +31,13 @@ test("adds known workshop items with default dimensions", () => {
   assert.equal(item.depth, 4);
   assert.equal(item.x, 1);
   assert.equal(item.y, 1);
+});
+
+test("has a local SVG image for every item template", () => {
+  const sprite = fs.readFileSync(path.join(__dirname, "../assets/workshop-items.svg"), "utf8");
+  core.ITEM_TEMPLATES.forEach((template) => {
+    assert.match(sprite, new RegExp(`<symbol id="${template.key}"\\b`));
+  });
 });
 
 test("adds door opening markers", () => {

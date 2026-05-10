@@ -277,24 +277,32 @@ h2 {
 }
 
 .item-shape {
-  fill: rgba(216, 139, 74, 0.82);
-  stroke: #7c401e;
-  stroke-width: 0.12;
+  fill: transparent;
+  stroke: rgba(124, 64, 30, 0.35);
+  stroke-dasharray: 0.18 0.14;
+  stroke-width: 0.08;
 }
 
 .opening-shape {
-  fill: rgba(232, 222, 203, 0.72);
+  fill: transparent;
   stroke: #5f5a51;
   stroke-dasharray: 0.28 0.16;
 }
 
 .plan-item.selected .item-shape {
-  fill: rgba(60, 110, 113, 0.88);
+  fill: rgba(60, 110, 113, 0.12);
   stroke: #183f42;
+  stroke-width: 0.16;
 }
 
 .plan-item.selected .opening-shape {
   fill: rgba(60, 110, 113, 0.2);
+}
+
+.item-image {
+  display: block;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .item-detail {
@@ -356,12 +364,12 @@ h2 {
 
 .item-label {
   fill: #1e1712;
-  font-size: 0.75px;
+  font-size: 0.62px;
   font-weight: 800;
   pointer-events: none;
   paint-order: stroke;
-  stroke: rgba(255, 255, 255, 0.82);
-  stroke-width: 0.12;
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 0.18;
 }
 
 .plan-item.selected .item-label {
