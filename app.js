@@ -376,24 +376,18 @@ function renderGarageDoor(group, width, depth) {
 }
 
 function renderItemImage(group, item, footprint) {
-  const image = svgElement("svg", {
+  const imagePath = `assets/item-images/${item.templateKey}.svg`;
+  const image = svgElement("image", {
     class: "item-image",
     x: 0,
     y: 0,
     width: footprint.width,
     height: footprint.depth,
-    viewBox: "0 0 100 100",
-    preserveAspectRatio: "none",
+    href: imagePath,
+    preserveAspectRatio: "xMidYMid meet",
     "aria-hidden": "true"
   });
-  const symbol = document.getElementById(item.templateKey);
-  if (symbol) {
-    Array.from(symbol.children).forEach((child) => {
-      if (child.tagName.toLowerCase() !== "style") {
-        image.appendChild(child.cloneNode(true));
-      }
-    });
-  }
+  image.setAttributeNS("http://www.w3.org/1999/xlink", "href", imagePath);
   group.appendChild(image);
 }
 
