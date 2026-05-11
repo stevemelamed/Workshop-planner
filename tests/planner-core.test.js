@@ -45,8 +45,8 @@ test("has a local SVG image for every item template", () => {
 
 test("renders placed floor plan items as images only", () => {
   const app = fs.readFileSync(path.join(__dirname, "../app.js"), "utf8");
-  assert.match(app, /href: `assets\/item-images\/\$\{item\.templateKey\}\.svg`/);
-  assert.doesNotMatch(app, /class: "item-label"|class: `item-shape/);
+  assert.match(app, /const imagePath = `assets\/item-images\/\$\{item\.templateKey\}\.svg`/);
+  assert.doesNotMatch(app, /class: "item-label"|class: `item-shape|function appendDetail|function renderShelves/);
   assert.doesNotMatch(app, /cloneNode\(true\)|svgElement\("title"\)|group\.appendChild\(label\)|group\.append\(title, rect\)/);
 });
 
